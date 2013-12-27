@@ -392,6 +392,7 @@ edxapp_upload_dir: "{{ edxapp_data_dir }}/uploads"
 edxapp_theme_dir: "{{ edxapp_data_dir }}/themes"
 edxapp_git_identity: "{{ edxapp_app_dir }}/edxapp-git-identity"
 edxapp_git_ssh: "/tmp/edxapp_git_ssh.sh"
+edxapp_devpi_enabled: false
 
 # TODO: This can be removed once VPC-122 is resolved
 edxapp_legacy_course_data_dir: "{{ edxapp_app_dir }}/data"
