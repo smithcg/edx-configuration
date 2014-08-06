@@ -365,6 +365,8 @@ EDXAPP_CELERY_WORKERS:
 EDXAPP_DEFAULT_CACHE_VERSION: "1"
 EDXAPP_OAUTH_ENFORCE_SECURE: True
 
+EDXAPP_IONISX_AUTH: !!null
+
 #-------- Everything below this line is internal to the role ------------
 
 #Use YAML references (& and *) and hash merge <<: to factor out shared settings
@@ -533,6 +535,7 @@ edxapp_generic_auth_config:  &edxapp_generic_auth
   GOOGLE_ANALYTICS_ACCOUNT: "{{ EDXAPP_GOOGLE_ANALYTICS_ACCOUNT }}"
   THIRD_PARTY_AUTH: "{{ EDXAPP_THIRD_PARTY_AUTH }}"
   AWS_STORAGE_BUCKET_NAME: "{{ EDXAPP_AWS_STORAGE_BUCKET_NAME }}"
+  IONISX_AUTH: '{{ EDXAPP_IONISX_AUTH }}'
   DJFS: $EDXAPP_DJFS
 
 generic_cache_config: &default_generic_cache
