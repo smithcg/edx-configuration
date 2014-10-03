@@ -37,6 +37,7 @@ EDXAPP_LMS_MAX_REQ: !!null
 EDXAPP_CMS_MAX_REQ: !!null
 # 'None' will be written out as null in
 # the configuration on disk
+EDXAPP_AWS_S3_HOST: !!null
 EDXAPP_AWS_ACCESS_KEY_ID:  "None"
 EDXAPP_AWS_SECRET_ACCESS_KEY:  "None"
 EDXAPP_XQUEUE_BASIC_AUTH: [ "{{ COMMON_HTPASSWD_USER }}", "{{ COMMON_HTPASSWD_PASS }}" ]
@@ -447,6 +448,7 @@ edxapp_environment:
 
 edxapp_generic_auth_config:  &edxapp_generic_auth
   ANALYTICS_DATA_TOKEN: "{{ EDXAPP_ANALYTICS_DATA_TOKEN }}"
+  AWS_S3_HOST: "{{ EDXAPP_AWS_S3_HOST }}"
   AWS_ACCESS_KEY_ID:  "{{ EDXAPP_AWS_ACCESS_KEY_ID }}"
   AWS_SECRET_ACCESS_KEY: "{{ EDXAPP_AWS_SECRET_ACCESS_KEY }}"
   SECRET_KEY:  "{{ EDXAPP_EDXAPP_SECRET_KEY }}"
