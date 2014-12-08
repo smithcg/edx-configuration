@@ -180,6 +180,10 @@ EDXAPP_PLATFORM_MEETUP_URL: "http://www.meetup.com/YourMeetup"
 EDXAPP_PLATFORM_LINKEDIN_URL: "http://www.linkedin.com/company/YourPlatform"
 EDXAPP_PLATFORM_GOOGLE_PLUS_URL: "https://plus.google.com/YourGooglePlusAccount/"
 
+EDXAPP_CMS_ADVANCED_PROBLEM_TYPES:
+  - component: 'openassessment'
+    boilerplate_name: null
+
 EDXAPP_ENV_EXTRA: {}
 EDXAPP_AUTH_EXTRA: {}
 EDXAPP_LMS_AUTH_EXTRA: "{{ EDXAPP_AUTH_EXTRA }}"
@@ -685,6 +689,7 @@ cms_auth_config:
 cms_env_config:
   <<: *edxapp_generic_env
   SITE_NAME:  "{{ EDXAPP_CMS_SITE_NAME }}"
+  ADVANCED_PROBLEM_TYPES: "{{ EDXAPP_CMS_ADVANCED_PROBLEM_TYPES }}"
 
 # install dir for the edx-platform repo
 edxapp_code_dir: "{{ edxapp_app_dir }}/edx-platform"
