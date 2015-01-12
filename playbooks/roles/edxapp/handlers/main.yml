@@ -8,6 +8,8 @@
   when: edxapp_installed is defined and celery_worker is not defined and not disable_edx_services
   sudo_user: "{{ supervisor_service_user }}"
   with_items: service_variants_enabled
+  tags:
+  - theme
 
 - name: restart edxapp_workers
   supervisorctl_local: >

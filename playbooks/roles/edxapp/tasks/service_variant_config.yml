@@ -103,5 +103,7 @@
   notify:
   - "restart edxapp"
   - "restart edxapp_workers"
+  tags:
+  - theme
   environment: "{{ edxapp_environment }}"
 

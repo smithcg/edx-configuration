@@ -19,12 +19,16 @@
     src=git_ssh_auth.sh.j2 dest={{ edxapp_git_ssh }}
     owner={{ edxapp_user }} mode=750
   when: EDXAPP_USE_GIT_IDENTITY
+  tags:
+  - theme
 
 - name: install read-only ssh key
   copy: >
     content="{{ EDXAPP_GIT_IDENTITY }}" dest={{ edxapp_git_identity }}
     force=yes owner={{ edxapp_user }} mode=0600
   when: EDXAPP_USE_GIT_IDENTITY
+  tags:
+  - theme
 
 # Do A Checkout
 - name: checkout edx-platform repo into {{ edxapp_code_dir }}
@@ -59,6 +63,8 @@
   environment:
     GIT_SSH: "{{ edxapp_git_ssh }}"
   register: edxapp_theme_checkout
+  tags:
+  - theme
   notify:
   - "restart edxapp"
   - "restart edxapp_workers"
@@ -479,6 +485,8 @@
 - name: remove read-only ssh key
   file: path={{ edxapp_git_identity }} state=absent
   when: EDXAPP_USE_GIT_IDENTITY
+  tags:
+  - theme
 
 - include: tag_ec2.yml tags=deploy
   when: COMMON_TAG_EC2_INSTANCE
